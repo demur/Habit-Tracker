@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<layout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <import type="android.view.View" />
+
+        <variable
+            name="rvHelper"
+            type="tech.demur.habittracker.utils.RecyclerViewStateHelper" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            style="@style/RecyclerView"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            android:visibility="@{rvHelper.loadingState||rvHelper.errorState ? View.INVISIBLE : View.VISIBLE}" />
+
+        <ProgressBar
+            android:id="@+id/pb_loading_indicator"
+            style="@style/LoadingIndicator"
+            android:visibility="@{rvHelper.loadingState ? View.VISIBLE : View.INVISIBLE}" />
+
+        <ImageView
+            android:id="@+id/iv_message_icon"
+            style="@style/MessageIcon"
+            android:contentDescription="@null"
+            android:visibility="@{rvHelper.errorState ? View.VISIBLE : View.INVISIBLE}" />
+
+        <TextView
+            android:id="@+id/tv_message"
+            style="@style/ErrorMessage"
+            android:visibility="@{rvHelper.errorState ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintEnd_toEndOf="@id/iv_message_icon"
+            app:layout_constraintStart_toStartOf="@id/iv_message_icon"
+            app:layout_constraintTop_toBottomOf="@id/iv_message_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
