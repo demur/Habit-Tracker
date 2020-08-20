@@ -4,9 +4,12 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 import tech.demur.habittracker.adapter.HabitAdapter;
 import tech.demur.habittracker.databinding.ActivityMainBinding;
@@ -38,9 +41,17 @@ public class MainActivity extends AppCompatActivity implements HabitAdapter.Habi
         mBinding.recyclerView.setLayoutManager(mLayoutManager);
         mHabitAdapter = new HabitAdapter(this, this);
         mBinding.recyclerView.setAdapter(mHabitAdapter);
+        mViewModel.getLiveHabits().observe(MainActivity.this, allHabitsObserver);
     }
 
     @Override
     public void onClick(Habit habit) {
     }
+
+    final Observer<List<Habit>> allHabitsObserver = new Observer<List<Habit>>() {
+        @Override
+        public void onChanged(List<Habit> habits) {
+            mHabitAdapter.swapHabitList(habits);
+        }
+    };
 }
