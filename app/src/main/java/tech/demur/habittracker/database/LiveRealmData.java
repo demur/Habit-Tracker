@@ -29,6 +29,7 @@ public class LiveRealmData<T extends RealmModel> extends LiveData<List<T>> {
     protected void onActive() {
         super.onActive();
         results.addChangeListener(listener);
+        listener.onChange(results);
     }
 
     @Override
