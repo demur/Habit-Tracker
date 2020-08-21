@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Habit Tracker</string>
+    <string name="action_add">Add Habit</string>
+    <string name="title_set_habit_activity">Set a Habit</string>
+    <string name="title_edit_habit_activity">Edit Habit</string>
+
+
+    <string name="edit_task_description">Describe your task&#8230;</string>
+    <string name="priority_string">Priority</string>
+    <string name="high_priority">High</string>
+    <string name="med_priority">Medium</string>
+    <string name="low_priority">Low</string>
+    <string name="add_button">Add Habit</string>
+    <string name="error_no_habit_found">Habit was not found</string>
+    <string name="action_save">Save</string>
+    <string name="action_clear">Clear database</string>
+    <string name="action_populate">Populate database</string>
+    <string name="title_logging_activity">Log progress</string>
+    <string name="record_entry_title">Entry for \"%1$s\" habit</string>
+    <string name="record_value_type_label">(of \"%1$s\" type)</string>
 </resources>

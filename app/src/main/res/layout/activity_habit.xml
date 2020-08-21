@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HabitActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:labelFor="@id/et_name"
+                android:text="Name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/label_control_margin"
+                android:layout_marginEnd="24dp"
+                android:ems="16"
+                android:hint="Drink water"
+                android:inputType="textCapSentences|textAutoCorrect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name_label" />
+
+            <TextView
+                android:id="@+id/tv_interval_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:labelFor="@id/s_type"
+                android:text="Frequency"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+                app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+            <TextView
+                android:id="@+id/tv_interval_every"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/et_unit"
+                android:text="Every"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/s_interval"
+                app:layout_constraintStart_toStartOf="@+id/tv_interval_label"
+                app:layout_constraintTop_toBottomOf="@+id/s_interval" />
+
+            <Spinner
+                android:id="@+id/s_interval"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="@dimen/label_control_margin"
+                app:layout_constraintStart_toEndOf="@+id/tv_interval_every"
+                app:layout_constraintTop_toBottomOf="@+id/tv_interval_label" />
+
+            <TextView
+                android:id="@+id/tv_unit_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:labelFor="@id/et_unit"
+                android:text="Unit of measurement"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+                app:layout_constraintTop_toBottomOf="@id/s_interval" />
+
+            <EditText
+                android:id="@+id/et_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/label_control_margin"
+                android:ems="10"
+                android:hint="fl oz"
+                android:inputType="none"
+                app:layout_constraintStart_toStartOf="@+id/tv_unit_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_unit_label" />
+
+            <TextView
+                android:id="@+id/tv_type_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:labelFor="@id/s_type"
+                android:text="Type of goal value"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+                app:layout_constraintTop_toBottomOf="@+id/et_unit" />
+
+            <Spinner
+                android:id="@+id/s_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/label_control_margin"
+                app:layout_constraintStart_toStartOf="@+id/tv_type_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_type_label" />
+
+            <TextView
+                android:id="@+id/tv_value_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:labelFor="@id/et_value_start"
+                android:text="Goal value"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+                app:layout_constraintTop_toBottomOf="@id/s_type" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_range"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Range?"
+                android:textColor="@color/colorSecondaryText"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_value_label"
+                app:layout_constraintStart_toStartOf="@+id/et_value_end"
+                app:layout_constraintTop_toTopOf="@+id/tv_value_label" />
+
+            <EditText
+                android:id="@+id/et_value_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/label_control_margin"
+                android:ems="8"
+                android:hint="2"
+                android:inputType="textCapSentences|textAutoCorrect"
+                app:layout_constraintStart_toStartOf="@+id/tv_value_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_value_label" />
+
+            <TextView
+                android:id="@+id/tv_dots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/et_value_start"
+                android:text=".."
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@id/et_value_start"
+                app:layout_constraintEnd_toStartOf="@+id/et_value_end"
+                app:layout_constraintStart_toEndOf="@+id/et_value_start" />
+
+            <EditText
+                android:id="@+id/et_value_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/label_control_margin"
+                android:ems="8"
+                android:hint="4"
+                android:inputType="textCapSentences|textAutoCorrect"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@+id/et_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_value_label" />
+
+            <TextView
+                android:id="@+id/tv_condition_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:labelFor="@id/s_condition"
+                android:text="Condition"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+                app:layout_constraintTop_toBottomOf="@id/et_value_start" />
+
+            <TextView
+                android:id="@+id/tv_condition_explained"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="(how logged values related to the goal value)"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@id/tv_condition_label"
+                app:layout_constraintStart_toEndOf="@+id/tv_condition_label" />
+
+            <TextView
+                android:id="@+id/tv_logged_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/et_unit"
+                android:text="Logged value"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/s_condition"
+                app:layout_constraintStart_toStartOf="@+id/tv_condition_label"
+                app:layout_constraintTop_toBottomOf="@+id/s_condition" />
+
+            <Spinner
+                android:id="@+id/s_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/label_control_margin"
+                android:layout_marginBottom="24dp"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_logged_value"
+                app:layout_constraintTop_toBottomOf="@+id/tv_condition_label" />
+
+            <TextView
+                android:id="@+id/tv_goal_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/et_unit"
+                android:text="Goal value"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/s_condition"
+                app:layout_constraintStart_toEndOf="@+id/s_condition"
+                app:layout_constraintTop_toBottomOf="@+id/s_condition" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
