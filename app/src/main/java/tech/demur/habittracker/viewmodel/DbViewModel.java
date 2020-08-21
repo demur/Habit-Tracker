@@ -10,6 +10,7 @@ import java.util.Date;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import tech.demur.habittracker.database.LiveRealmData;
+import tech.demur.habittracker.database.TestData;
 import tech.demur.habittracker.model.Habit;
 import tech.demur.habittracker.model.Period;
 import tech.demur.habittracker.model.Record;
@@ -205,6 +206,10 @@ public class DbViewModel extends AndroidViewModel {
                 realm.deleteAll();
             }
         });
+    }
+
+    public void populateDb() {
+        TestData.populateDb(this);
     }
 
     public Realm getDb() {
