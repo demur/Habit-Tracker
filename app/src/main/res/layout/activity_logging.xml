@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoggingActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".LoggingActivity">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text='Entry for "Some" habit' />
+
+            <TextView
+                android:id="@+id/tv_value_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:labelFor="@id/et_value"
+                android:text="Value"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_value_explained"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@id/tv_value_label"
+                app:layout_constraintStart_toEndOf="@+id/tv_value_label"
+                tools:text='(of "Number" type)' />
+
+            <EditText
+                android:id="@+id/et_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/label_control_margin"
+                android:layout_marginEnd="24dp"
+                android:ems="16"
+                android:inputType="textCapSentences|textAutoCorrect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_value_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_value_label" />
+
+            <TextView
+                android:id="@+id/tv_notes_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:labelFor="@id/et_notes"
+                android:text="Notes"
+                app:layout_constraintStart_toStartOf="@id/et_value"
+                app:layout_constraintTop_toBottomOf="@+id/et_value" />
+
+            <TextView
+                android:id="@+id/tv_optional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="(optional)"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@id/tv_notes_label"
+                app:layout_constraintStart_toEndOf="@+id/tv_notes_label" />
+
+            <EditText
+                android:id="@+id/et_notes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/label_control_margin"
+                android:layout_marginEnd="24dp"
+                android:gravity="start"
+                android:inputType="textMultiLine|textCapSentences|textAutoCorrect"
+                android:minLines="5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_notes_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_notes_label" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -49,6 +49,52 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitAdapter
     public void onBindViewHolder(@NonNull final HabitAdapterViewHolder holder, int position) {
         final Habit theHabit = habitList.get(position);
         holder.binding.tvName.setText(theHabit.name);
+        Map<String, String> intervalMap = new HashMap<String, String>();
+        intervalMap.put("day", "daily");
+        intervalMap.put("week", "weekly");
+        intervalMap.put("month", "monthly");
+        if (theHabit.goal_type.equalsIgnoreCase("Number")) {
+            holder.binding.tvIntervalLabel.setText(intervalMap.get(theHabit.interval) + ", " + theHabit.goal_label);
+        } else {
+            holder.binding.tvIntervalLabel.setText(intervalMap.get(theHabit.interval));
+        }
+        Date startDate;
+        switch (theHabit.interval) {
+            case "month":
+                startDate = roundDateMonth(new Date());
+                break;
+            case "week":
+                startDate = roundDateWeek(new Date());
+                break;
+            case "day":
+            default:
+                startDate = roundDateDay(new Date());
+        }
+        Period curPeriod = null;
+        if (null != theHabit.periods && theHabit.periods.size() > 0) {
+            for (Period period : theHabit.periods) {
+                if (period.periodStart.equals(startDate)) {
+                    curPeriod = period;
+                    break;
+                }
+            }
+        }
+        if (null != curPeriod && curPeriod.achieved) {
+            holder.binding.tvStatusIcon.setText("☑");
+            holder.binding.tvStatusIcon.setTextColor(Color.rgb(11, 102, 35));
+        } else {
+            holder.binding.tvStatusIcon.setText("☐");
+            holder.binding.tvStatusIcon.setTextColor(Color.rgb(204, 139, 6));
+        }
+        Map<String, String> statusMap = new HashMap<String, String>();
+        statusMap.put("day", "today");
+        statusMap.put("week", "this week");
+        statusMap.put("month", "this month");
+        if (null != curPeriod && theHabit.goal_type.equalsIgnoreCase("Number") && !curPeriod.total.isEmpty()) {
+            holder.binding.tvStatus.setText(statusMap.get(theHabit.interval) + "\n" + curPeriod.total + "/" + theHabit.goal);
+        } else {
+            holder.binding.tvStatus.setText(statusMap.get(theHabit.interval));
+        }
     }
 
     @Override
