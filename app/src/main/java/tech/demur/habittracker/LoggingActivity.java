@@ -59,6 +59,7 @@ public class LoggingActivity extends AppCompatActivity {
         }
         mBinding.tvTitle.setText(LoggingActivity.this.getString(R.string.record_entry_title, mHabit.name));
         mBinding.tvValueExplained.setText(LoggingActivity.this.getString(R.string.record_value_type_label, mHabit.goal_type));
+        mBinding.tvLabel.setText(mHabit.goal_label);
     }
 
     @Override
