@@ -128,12 +128,12 @@ public class DbViewModel extends AndroidViewModel {
                 }
             } else if (habit.goal_type.equalsIgnoreCase("Time")) {
                 String[] part = habit.goal.split("\\.\\.");
-                int goal = Integer.parseInt(part[0]);
+                int goal = Integer.parseInt(part[0].replaceAll("(\\d+).+", "$1"));
                 if (part[0].contains("PM")) {
                     goal += 12;
                 }
                 for (Record record : period.records) {
-                    int value = Integer.parseInt(record.value);
+                    int value = Integer.parseInt(record.value.replaceAll("(\\d+).+", "$1"));
                     if (record.value.contains("PM")) {
                         value += 12;
                     }
@@ -150,7 +150,7 @@ public class DbViewModel extends AndroidViewModel {
                         case "in range":
                             if (habit.goal.contains("..")) {
                                 int bottomLimit = goal;
-                                int topLimit = Integer.parseInt(part[1]);
+                                int topLimit = Integer.parseInt(part[1].replaceAll("(\\d+).+", "$1"));
                                 if (part[1].contains("PM")) {
                                     topLimit += 12;
                                 }
@@ -161,7 +161,7 @@ public class DbViewModel extends AndroidViewModel {
                         case "not in range":
                             if (habit.goal.contains("..")) {
                                 int bottomLimit = goal;
-                                int topLimit = Integer.parseInt(part[1]);
+                                int topLimit = Integer.parseInt(part[1].replaceAll("(\\d+).+", "$1"));
                                 if (part[1].contains("PM")) {
                                     topLimit += 12;
                                 }
