@@ -105,7 +105,7 @@ public class LoggingActivity extends AppCompatActivity {
         mRecord.value = mBinding.etValue.getText().toString();
         mRecord.notes = mBinding.etNotes.getText().toString();
         mViewModel.createOrUpdateRecord(mRecord);
-        mViewModel.recalcPeriod(mPeriod);
+        mViewModel.recalcPeriod(mPeriod._id);
     }
 
     @Override
