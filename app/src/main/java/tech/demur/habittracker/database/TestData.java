@@ -90,5 +90,60 @@ public class TestData {
         tmpRecord = new Record("1", tmpPeriod);
         viewModel.createOrUpdateRecord(tmpRecord);
         viewModel.recalcPeriod(tmpPeriod._id);
+
+
+        tmpHabit = new Habit("Meditate", "week", "2", "Number", "times", "≥");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
+
+
+        tmpHabit = new Habit("Read", "day", "5", "Number", "pages", "≥");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
+
+
+        tmpHabit = new Habit("Exercise", "week", "3", "Number", "times", "≥");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
+
+
+        tmpHabit = new Habit("Walk outside", "week", "4", "Number", "minutes", "≥");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
+
+
+        tmpHabit = new Habit("No soda", "week", "2", "Number", "cups", "≤");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
+
+
+        tmpHabit = new Habit("Publish blog post", "month", "4", "Number", "posts", "≥");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
+
+
+        tmpHabit = new Habit("Call mom", "week", "1", "Number", "times", "≥");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
+
+
+        tmpHabit = new Habit("Deep clean the house", "month", "1", "Number", "times", "≥");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
+
+
+        tmpHabit = new Habit("Put all dishes right away", "day", "Yes", "Yes/No", "", "=");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
+
+
+        tmpHabit = new Habit("Do the laundry", "week", "1", "Number", "times", "≥");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
+
+
+        tmpHabit = new Habit("Take medication", "day", "1", "Number", "times", "=");
+        tmpHabit.created = clndr.getTime();
+        viewModel.createOrUpdateHabit(tmpHabit);
     }
 }
